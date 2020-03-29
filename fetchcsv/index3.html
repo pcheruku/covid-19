@@ -15,12 +15,18 @@ var chart = new CanvasJS.Chart("chartContainer",{
 		dataPoints : dataPoints,
 	}]
 });
-$.getJSON("https://covidtracking.com/api/states", function(data) {  
+/*$.getJSON("https://covidtracking.com/api/states", function(data) {  
 	$.each(data, function(key, value){
 		console.log(value.state + ' - ' + value.positive);
 		dataPoints.push({x: value.state, y: parseInt(value.positive)});
 	});	
 	chart.render();
+});*/
+$.getJSON("https://canvasjs.com/services/data/datapoints.php?xstart=1&ystart=10&length=100&type=json", function(data) {  
+    $.each(data, function(key, value){
+        dataPoints.push({x: value[0], y: parseInt(value[1])});
+    });
+    chart.render();
 });
 }
 </script>
