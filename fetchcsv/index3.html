@@ -4,7 +4,7 @@
 <script type="text/javascript" src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 <script type="text/javascript">
-window.onload = function () {
+/*window.onload = function () {
 var dataPoints = [];
 var chart = new CanvasJS.Chart("chartContainer",{
 	title:{
@@ -15,18 +15,44 @@ var chart = new CanvasJS.Chart("chartContainer",{
 		dataPoints : dataPoints,
 	}]
 });
-/*$.getJSON("https://covidtracking.com/api/states", function(data) {  
-	$.each(data, function(key, value){
-		console.log(value.state + ' - ' + value.positive);
-		dataPoints.push({x: value.state, y: parseInt(value.positive)});
-	});	
-	chart.render();
-});*/
 $.getJSON("https://canvasjs.com/services/data/datapoints.php?xstart=1&ystart=10&length=100&type=json", function(data) {  
     $.each(data, function(key, value){
         dataPoints.push({x: value[0], y: parseInt(value[1])});
     });
     chart.render();
+});
+}*/
+
+window.onload = function () {
+var dataPoints = [];	
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	
+	title:{
+		text:"Fortune 500 Companies by Country"
+	},
+	axisX:{
+		interval: 1
+	},
+	axisY2:{
+		interlacedColor: "rgba(1,77,101,.2)",
+		gridColor: "rgba(1,77,101,.1)",
+		title: "Number of Companies"
+	},
+	data: [{
+		type: "bar",
+		name: "companies",
+		axisYType: "secondary",
+		color: "#014D65",
+		dataPoints: dataPoints,
+	}]
+});
+$.getJSON("https://covidtracking.com/api/states", function(data) {  
+	$.each(data, function(key, value){
+		console.log(value.state + ' - ' + value.positive);
+		dataPoints.push({x: parseInt(value.positive), y: value.state});
+	});	
+	chart.render();
 });
 }
 </script>
