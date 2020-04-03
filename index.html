@@ -35,8 +35,7 @@
 		 }
          .wrapper {
          margin: 0 auto;
-         padding: 10px;
-         max-width: 800px;
+         padding: 10px;         
          }
          .table {
          margin: 0 0 40px 0;
@@ -117,7 +116,7 @@
 		 }
 		 
 		 function getCountryData() {
-			var htmlData = "<div class='row header'><div class='cell'>Country</div><div class='cell'>Positive</div><div class='cell'>Negative</div><div class='cell'>Pending</div><div class='cell'>Total</div><div class='cell'>Deaths</div></div>";
+			var htmlData = "<div class='row header'><div class='cell'>Country</div><div class='cell'>Positive</div><div class='cell'>Negative</div><div class='cell'>Pending</div><div class='cell'>Total</div><div class='cell'>Deaths</div><div class='cell'>Last Modified (PST)</div></div>";
 			$.getJSON('https://covidtracking.com/api/us', function(data) {
 				$.each(data, function(key, value){
 					htmlData += "<div class='row'>";
@@ -127,7 +126,9 @@
 					htmlData += "<div class='cell' data-title='Pending'>" + getValue(value.pending) + "</div>";
 					htmlData += "<div class='cell' data-title='Total'>" + getValue(value.total) + "</div>";
 					htmlData += "<div class='cell' data-title='Deaths'>" + getValue(value.death) + "</div>";
-					htmlData += "</div>";					
+					htmlData += "<div class='cell' data-title='Last Modified'>" + (new Date( Date.parse(value.lastModified))).toLocaleString() + "</div>";
+					htmlData += "</div>";
+					alert(value.lastModified);					
 				});
 				document.getElementById('divTable').innerHTML = htmlData;
 				console.log(htmlData);
@@ -135,7 +136,7 @@
 		}
 		//https://covidtracking.com/api/us
 		function getStateData() {
-			var htmlStateData = "<div class='row header'><div class='cell'>State</div><div class='cell'>Positive</div><div class='cell'>Negative</div><div class='cell'>Pending</div><div class='cell'>Total</div><div class='cell'>Deaths</div></div>";
+			var htmlStateData = "<div class='row header'><div class='cell'>State</div><div class='cell'>Positive</div><div class='cell'>Negative</div><div class='cell'>Pending</div><div class='cell'>Total</div><div class='cell'>Deaths</div><div class='cell'>Last Modified (PST)</div></div>";
 			$.getJSON('https://covidtracking.com/api/states', function(data) {
 				$.each(data, function(key, value){
 					htmlStateData += "<div class='row'>";
@@ -145,6 +146,7 @@
 					htmlStateData += "<div class='cell' data-title='Pending'>" + getValue(value.pending) + "</div>";
 					htmlStateData += "<div class='cell' data-title='Total'>" + getValue(value.total) + "</div>";
 					htmlStateData += "<div class='cell' data-title='Deaths'>" + getValue(value.death) + "</div>";
+					htmlStateData += "<div class='cell' data-title='Last Modified'>" + (new Date( Date.parse(value.dateModified))).toLocaleString() + "</div>";					
 					htmlStateData += "</div>";					
 				});
 				document.getElementById('divStateTable').innerHTML = htmlStateData;
