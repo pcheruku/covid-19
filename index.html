@@ -11,7 +11,7 @@
       <style>
          body {
          font-family: "Helvetica Neue", Helvetica, Arial;
-         font-size: 18px;
+         font-size: 20px;
          line-height: 40px;
          font-weight: 400;
          color: #3b3b3b;
@@ -120,7 +120,7 @@
 			$.getJSON('https://covidtracking.com/api/us', function(data) {
 				$.each(data, function(key, value){
 					htmlData += "<div class='row'>";
-					htmlData += "<div class='cell' data-title='Country'>United States of America</div>";
+					htmlData += "<div class='cell' data-title='Country'>United States</div>";
 					htmlData += "<div class='cell' data-title='Positive'>" + getValue(value.positive) + "</div>";
 					htmlData += "<div class='cell' data-title='Negative'>" + getValue(value.negative) + "</div>";
 					htmlData += "<div class='cell' data-title='Pending'>" + getValue(value.pending) + "</div>";
@@ -218,7 +218,7 @@
 				['American Samoa', 'AS'],
 				['District Of Columbia', 'DC'],
 				['Guam', 'GU'],
-				['Northern Mariana Islands', 'MP'],
+				['N Mariana Islands', 'MP'],
 				['Puerto Rico', 'PR'],
 				['US Virgin Islands', 'VI'],
 			];
