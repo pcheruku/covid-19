@@ -120,7 +120,7 @@
 			$.getJSON('https://covidtracking.com/api/us', function(data) {
 				$.each(data, function(key, value){
 					htmlData += "<div class='row'>";
-					htmlData += "<div class='cell' data-title='Country'>United States of America</div>";
+					htmlData += "<div class='cell' data-title='Country'>United States (USA)</div>";
 					htmlData += "<div class='cell' data-title='Positive'>" + getValue(value.positive) + "</div>";
 					htmlData += "<div class='cell' data-title='Negative'>" + getValue(value.negative) + "</div>";
 					htmlData += "<div class='cell' data-title='Pending'>" + getValue(value.pending) + "</div>";
