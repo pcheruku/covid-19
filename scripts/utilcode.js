@@ -40,7 +40,7 @@ function getValue(val){
 		return 0;
 	}
 	else {
-		return val;
+		return val.toLocaleString('en');
 	}			
 }		
 
