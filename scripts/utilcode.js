@@ -19,7 +19,7 @@ function getStateData() {
 			htmlStateData += "<div class='row'>";
 			htmlStateData += "<div class='cell' data-title='State'>" + abbrState(value.state, 'name') + "</div>";
 			htmlStateData += parseData(value);
-			htmlStateData += "<div class='cell' data-title='Last Modified'>" + (new Date( Date.parse(value.dateModified))).toLocaleString() + "</div>";					
+			htmlStateData += "<div class='cell' data-title='Last Modified'>" + (new Date( Date.parse(value.dateModified))).toLocaleString().replace('/2020', '') + "</div>";					
 			htmlStateData += "</div>";					
 		});
 		document.getElementById('divStateTable').innerHTML = htmlStateData;				
@@ -38,7 +38,7 @@ function parseData(value){
 
 function getValue(val){
 	if(val == null) {
-		return 0;
+		return 'N/A';
 	}
 	else {
 		return val.toLocaleString('en');
