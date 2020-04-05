@@ -1,5 +1,5 @@
 function getCountryData() {
-	var htmlData = "<div class='row header'><div class='cell'>Country</div><div class='cell'>Positive</div><div class='cell'>Negative</div><div class='cell'>Pending</div><div class='cell'>Total</div><div class='cell'>Deaths</div><div class='cell'>Last Modified (PST)</div></div>";
+	var htmlData = "<div class='row header'><div class='cell'>Country</div><div class='cell'>Positive</div><div class='cell'>Negative</div><div class='cell'>Pending</div><div class='cell'>Total</div><div class='cell'>Recovered</div><div class='cell'>Deaths</div><div class='cell'>Modified (PST)</div></div>";
 	$.getJSON('https://covidtracking.com/api/us', function(data) {
 		$.each(data, function(key, value){
 			htmlData += "<div class='row'>";
@@ -13,7 +13,7 @@ function getCountryData() {
 }
 
 function getStateData() {
-	var htmlStateData = "<div class='row header'><div class='cell'>State</div><div class='cell'>Positive</div><div class='cell'>Negative</div><div class='cell'>Pending</div><div class='cell'>Total</div><div class='cell'>Deaths</div><div class='cell'>Last Modified (PST)</div></div>";
+	var htmlStateData = "<div class='row header'><div class='cell'>State</div><div class='cell'>Positive</div><div class='cell'>Negative</div><div class='cell'>Pending</div><div class='cell'>Total</div><div class='cell'>Recovered</div><div class='cell'>Deaths</div><div class='cell'>Modified (PST)</div></div>";
 	$.getJSON('https://covidtracking.com/api/states', function(data) {
 		$.each(data, function(key, value){
 			htmlStateData += "<div class='row'>";
@@ -31,6 +31,7 @@ function parseData(value){
 	data += "<div class='cell' data-title='Negative'>" + getValue(value.negative) + "</div>";
 	data += "<div class='cell' data-title='Pending'>" + getValue(value.pending) + "</div>";
 	data += "<div class='cell' data-title='Total'>" + getValue(value.total) + "</div>";
+	data += "<div class='cell' data-title='Recovered'>" + getValue(value.recovered) + "</div>";
 	data += "<div class='cell' data-title='Deaths'>" + getValue(value.death) + "</div>";
 	return data;
 }
