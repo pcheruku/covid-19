@@ -11,13 +11,19 @@
 		 window.onload = function () {
 			getCountryData();
 			getStateData();
-		 }		
+		 }
+		$(document).ready(function(){$("#btnVideo").click(function() {			
+		  $('html, body').animate({
+			scrollTop: $("#divVideo").offset().top
+		  }, 1000);
+		});
+		});
       </script>
    </head>
    <body translate="no">
 	  <div class="wrapper">
 		<h1 class="heading">COVID-19 Case Details - United States of America</h1>
-		<h3 class="heading">CDC now recommends everyone wearing a mask to stop the spread of COVID-19. <br/> <button href='covid19tips.html'>Click here</button> to see how to make a homemade mask in less than 2 minutes.</h3>
+		<h3 class="heading">CDC now recommends everyone wearing a mask to stop the spread of COVID-19. <br/> <button id="btnVideo" class="btn"><b>Click here</b></button> to see how to make a homemade mask in less than 2 minutes.</h3>
 	  </div>
 	  <div class="wrapper">
          <div id='divTable' class="table">            
@@ -27,7 +33,7 @@
          <div id='divStateTable' class="table">            
          </div>
       </div>
-	  <div class="wrapper">
+	  <div id="divVideo" class="wrapper">
 		<iframe width="560" height="315" src="https://www.youtube.com/embed/DJSRl_3rSy0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 	  </div>
 	  <div class="wrapper">
