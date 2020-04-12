@@ -13,7 +13,7 @@ function getCountryData() {
 }
 
 function getStateData() {
-	var htmlStateData = "<div class='row header'><div class='cell' style='text-align:left'>State</div><div class='cell'>Positive</div><div class='cell'>Negative</div><div class='cell'>Pending</div><div class='cell'>Total</div><div class='cell'>Recovered</div><div class='cell'>Deaths</div><div class='cell'>Modified</div></div>";
+	var htmlStateData = "<div class='row header' style='position:sticky;top:0px;'><div class='cell' style='text-align:left'>State</div><div class='cell'>Positive</div><div class='cell'>Negative</div><div class='cell'>Pending</div><div class='cell'>Total</div><div class='cell'>Recovered</div><div class='cell'>Deaths</div><div class='cell'>Modified</div></div>";
 	$.getJSON('https://covidtracking.com/api/states', function(data) {
 		$.each(data, function(key, value){
 			htmlStateData += "<div class='row'>";
