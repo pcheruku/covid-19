@@ -6,7 +6,7 @@ body {
  color: #3b3b3b;
  -webkit-font-smoothing: antialiased;
  font-smoothing: antialiased;
- background: #2b2b2b;
+ background: #404040;
  }
  @media screen and (max-width: 580px) {
  body {
@@ -40,8 +40,18 @@ body {
   text-align: center;
 }
 .wrapper .btn:hover {
-  background-color: black;
+  background-color: #EA6153;
   color: white;
+}
+ .wrapper .txt {
+  background-color: #f1f1f1;
+  color: black;
+  font-size: 20px;
+  border: none;
+  width: 120px;
+  padding: 8px 8px;
+  border-radius: 5px;
+  text-align: left;
 }
  .table {
  margin: 0 0 40px 0;

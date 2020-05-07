@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <title>Lennar Folsom Ranch - Calculate Property Taxes</title>
+	  <link rel="touch-icon" type="image/png" href="images/stopcovid.png" />
+      <link rel="stylesheet" href="styles/default.css">
+	  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+	  <script src='scripts/utilcode.js'></script>      
+      <script>         		 
+		 window.onload = function () {			
+		 }
+		 function calculateTaxes(){			
+			var propertyValue = parseInt(document.getElementById('assessedText').value);
+			if(propertyValue){
+				alert(propertyValue);
+				var countyTaxRate = document.getElementById('countyTaxRate').innerHTML;
+				var fcImp3TaxRate = document.getElementById('fcImp3TaxRate').innerHTML;
+				document.getElementById('countyTax').innerHTML = '$ ' + getValue(countyTaxRate * propertyValue/100);
+				document.getElementById('fcImp3Tax').innerHTML = '$ ' + getValue(fcImp3TaxRate * propertyValue/100);
+			}
+			else {
+				alert('Enter property value');
+			}			
+		}		
+		function getValue(val){
+			if(val == null) {
+				return 'N/A';
+			}
+			else {
+				return val.toLocaleString('en');
+			}			
+		}
+		$(document).ready(function(){$("#assessedText").on('keyup', function(){
+			var n = parseInt($(this).val().replace(/\D/g,''),10);
+			$(this).val(n.toLocaleString());			
+		});
+		});
+      </script>
+   </head>
+   <body translate="no">
+	  <div class="wrapper">
+		<h1 class="heading">Lennar Folsom Ranch - Calculate Property Taxes</h1>
+		<h3 class="heading">Enter Your County Assessed Net Property Value: $
+			<input id="assessedText" class="txt" type="text" value=""/>
+			<button id="calculateBtn" class="btn" onclick="calculateTaxes()"><b>Calculate</b></button>			
+		</h3>
+	  </div>	  
+	  <div class="wrapper">
+         <div id='divTaxTable' class="table"> 
+			<div class='row header'>
+				<div class='cell'>Taxing Agency</div>
+				<div class='cell'>Tax Rate (%)</div>
+				<div class='cell'>Tax Amount</div>
+				<div class='cell'>Monthly Amount</div>				
+			</div>
+			<div class='row'>
+				<div class='cell'>County Wide</div>	
+				<div class='cell' id="countyTaxRate">1.0000</div>
+				<div class='cell' id="countyTax"></div>
+				<div class='cell'></div>
+			</div>
+			<div class='row'>
+				<div class='cell'>Folsom Cordova IMP 3</div>
+				<div class='cell' id="fcImp3TaxRate">0.1366</div>
+				<div class='cell' id="fcImp3Tax"></div>
+				<div class='cell'></div>
+			</div>
+			<div class='row'>
+				<div class='cell'>Folsom Cordova IMP 2</div>
+				<div class='cell'>0.0279</div>
+				<div class='cell'></div>
+				<div class='cell'></div>
+			</div>
+			<div class='row'>
+				<div class='cell'>LOS RIOS COLL GOB</div>
+				<div class='cell'>0.0232</div>
+				<div class='cell'></div>
+				<div class='cell'></div>
+			</div>
+         </div>
+      </div>      
+	  <div class="wrapper">
+		<h5 class="footer"></h5>
+		<p class="keywords"></p>
+	  </div> 
+	</body>
+</html>
