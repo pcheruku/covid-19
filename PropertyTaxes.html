@@ -31,7 +31,7 @@
 				document.getElementById('losRiosTax').innerHTML = '$ ' + getValue(losRiosTaxRate * propertyValue/100);
 				var totalTaxOnly = totalTaxOnlyRate * propertyValue/100;
 				document.getElementById('totalTaxOnly').innerHTML = '<b>$ ' + getValue(totalTaxOnly) + '</b>';
-				document.getElementById('monthlyTaxOnly').innerHTML = '<b>$ ' + totalTaxOnly/12 + '</b>';
+				//document.getElementById('monthlyTaxOnly').innerHTML = '<b>$ ' + totalTaxOnly/12 + '</b>';
 			}
 			else {
 				alert('Enter property value');
@@ -80,7 +80,7 @@
 			  <th scope="col">Taxing Agency</th>
 			  <th scope="col">Tax Rate (%)</th>
 			  <th scope="col">Tax Amount</th>
-			  <th scope="col">Monthly Amount</th>
+			  <!--<th scope="col">Monthly Amount</th>-->
 			</tr>
 		  </thead>
 		  <tbody>
@@ -88,32 +88,32 @@
 			  <th scope="row">County Wide</th>
 			  <td id="countyTaxRate">1.0000</td>
 			  <td id="countyTax"></td>
-			  <td></td>
+			  <!--<td></td>-->
 			</tr>
 			<tr>
 			  <th scope="row">Folsom Cordova IMP 3</th>
 			  <td id="fcImp3TaxRate">0.1366</td>
 			  <td id="fcImp3Tax"></td>
-			  <td></td>
+			  <!--<td></td>-->
 			</tr>
-			<!--<tr>
+			<tr>
 			  <th scope="row">Folsom Cordova IMP 2</th>
 			  <td id="fcImp2TaxRate">0.0279</td>
 			  <td id="fcImp2Tax"></td>
-			  <td></td>
+			  <!--<td></td>-->
 			</tr>
 			<tr>
 			  <th scope="row">LOS RIOS COLL GOB</th>
 			  <td id="losRiosTaxRate">0.0232</td>
 			  <td id="losRiosTax"></td>
-			  <td></td>
+			  <!--<td></td>-->
 			</tr>
 			<tr>
 			  <th scope="row"></th>
 			  <td id="totalTaxOnlyRate" style="font-weight:bold">1.1877</td>
 			  <td id="totalTaxOnly"></td>
-			  <td id="monthlyTaxOnly"></td>
-			</tr>-->
+			  <!--<td id="monthlyTaxOnly"></td>-->
+			</tr>
 		  </tbody>
 	    </table>	       
 	    <!--<div class="container">
