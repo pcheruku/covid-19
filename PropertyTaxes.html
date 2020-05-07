@@ -50,12 +50,9 @@
 		});
       </script>
    </head>
-   <body translate="no">
-	<main class="col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
+   <body>
 	  <div class="container-fluid">
-		<h2>Property Tax Calculator</h2>				
-	  
-	  <form>
+		<h2>Property Tax Calculator</h2>
 	    <div class="form-row align-items-center">
 			<div class="col-auto">
 			  <label><b>Value:</b></label>			  
@@ -76,9 +73,8 @@
 			<div class="col-auto">
 			  <button type="submit" class="btn btn-primary mb-2" onclick="calculateTaxes()">Calculate</button>
 			</div>
-		</div>		
-	  </form>
-	  <table class="table table-xl">
+	    </div>
+	    <table class="table table-xl">
 		  <thead class="thead-dark">
 			<tr>
 			  <!--<th scope="col">#</th>-->
@@ -120,12 +116,11 @@
 			  <td id="monthlyTaxOnly"></td>
 			</tr>-->
 		  </tbody>
-	  </table>	       
-	  <div class="container">
-		<h5 class="footer"></h5>
-		<p class="keywords"></p>
-	  </div> 
+	    </table>	       
+	    <!--<div class="container">
+			<h5 class="footer"></h5>
+			<p class="keywords"></p>
+		</div>-->
 	  </div>
-	  </main>
 	</body>
 </html>
