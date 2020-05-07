@@ -54,13 +54,12 @@
    </head>
    <body>
 	  <div class="container-fluid">
-		<h2>Property Tax Calculator</h2>
-	    <div class="form-row align-items-center">
-			<div class="col-auto">
-			  <label><b>Value:</b></label>			  
-			</div>
-		</div>
+		<h2><center>Property Tax Calculator</center></h2>
+		<h5><center>Lennar - Folsom Ranch</center></h5>	    
 		<div class="form-row align-items-center">
+			<div class="col-auto">
+			  <label>Enter County Assessed Property Value:</label>			  
+			</div>
 			<div class="col-auto">
 			  <label class="sr-only" for="inlineFormInputGroup">Assessed Value</label>
 			  <div class="input-group mb-2">
@@ -70,34 +69,32 @@
 				<input id="assessedText" type="text" class="form-control" id="inlineFormInputGroup" placeholder="Assessed Value">
 			  </div>
 			</div>
-		</div>
-		<div class="form-row align-items-center">
 			<div class="col-auto">
 			  <button type="submit" class="btn btn-primary mb-2" onclick="calculateTaxes()">Calculate</button>
 			</div>
-	    </div>
+		</div>		
 	    <table class="table table-xl">
 		  <thead class="thead-dark">
 			<tr>
 			  <!--<th scope="col">#</th>-->
 			  <th scope="col">Taxing Agency</th>
 			  <th scope="col">Tax Rate (%)</th>
-			  <!--<th scope="col">Tax Amount</th>
-			  <th scope="col">Monthly Amount</th>-->
+			  <th scope="col">Tax Amount</th>
+			  <th scope="col">Monthly Amount</th>
 			</tr>
 		  </thead>
 		  <tbody>
 			<tr>
 			  <th scope="row">County Wide</th>
 			  <td id="countyTaxRate">1.0000</td>
-			  <!--<td id="countyTax"></td>
-			  <td></td>-->
+			  <td id="countyTax"></td>
+			  <td></td>
 			</tr>
 			<tr>
 			  <th scope="row">Folsom Cordova IMP 3</th>
 			  <td id="fcImp3TaxRate">0.1366</td>
-			  <!--<td id="fcImp3Tax"></td>
-			  <td></td>-->
+			  <td id="fcImp3Tax"></td>
+			  <td></td>
 			</tr>
 			<!--<tr>
 			  <th scope="row">Folsom Cordova IMP 2</th>
