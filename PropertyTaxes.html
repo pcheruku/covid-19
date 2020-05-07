@@ -25,12 +25,12 @@
 				var totalTaxOnlyRate = document.getElementById('totalTaxOnlyRate').innerHTML;
 				//alert(fcImp2TaxRate);
 				//alert(getValue(fcImp2TaxRate * propertyValue/100));
-				document.getElementById('countyTax').innerHTML = '$ ' + getValue(countyTaxRate * propertyValue/100);
-				document.getElementById('fcImp3Tax').innerHTML = '$ ' + getValue(fcImp3TaxRate * propertyValue/100);
-				document.getElementById('fcImp2Tax').innerHTML = '$ ' + getValue(fcImp2TaxRate * propertyValue/100);
-				document.getElementById('losRiosTax').innerHTML = '$ ' + getValue(losRiosTaxRate * propertyValue/100);
+				document.getElementById('countyTax').innerHTML = '$' + getValue(countyTaxRate * propertyValue/100);
+				document.getElementById('fcImp3Tax').innerHTML = '$' + getValue(fcImp3TaxRate * propertyValue/100);
+				document.getElementById('fcImp2Tax').innerHTML = '$' + getValue(fcImp2TaxRate * propertyValue/100);
+				document.getElementById('losRiosTax').innerHTML = '$' + getValue(losRiosTaxRate * propertyValue/100);
 				var totalTaxOnly = totalTaxOnlyRate * propertyValue/100;
-				document.getElementById('totalTaxOnly').innerHTML = '<b>$ ' + getValue(totalTaxOnly) + '</b>';
+				document.getElementById('totalTaxOnly').innerHTML = '<b>$' + getValue(totalTaxOnly) + '</b>';
 				//document.getElementById('monthlyTaxOnly').innerHTML = '<b>$ ' + totalTaxOnly/12 + '</b>';
 			}
 			else {
@@ -113,6 +113,84 @@
 			  <td id="totalTaxOnlyRate" style="font-weight:bold">1.1877</td>
 			  <td id="totalTaxOnly"></td>
 			  <!--<td id="monthlyTaxOnly"></td>-->
+			</tr>
+			<thead class="thead-dark">
+				<tr>
+				  <!--<th scope="col">#</th>-->
+				  <th scope="col">Levy Name</th>
+				  <th scope="col">Authority</th>
+				  <th scope="col">Amount</th>
+				  <!--<th scope="col">Monthly Amount</th>-->
+				</tr>
+			</thead>
+			<tr>
+			  <th scope="row">Water Facilities</th>
+			  <td>Mello-Roos</td>
+			  <td>$198.24</td>
+			  <!--<td></td>-->
+			</tr>
+			<tr>
+			  <th scope="row">FPA Area-Wide</th>
+			  <td>Mello-Roos</td>
+			  <td>$1,019.14</td>
+			  <!--<td></td>-->
+			</tr>
+			<tr>
+			  <th scope="row">Willow Hill</th>
+			  <td>Mello-Roos</td>
+			  <td>$45.52</td>
+			  <!--<td></td>-->
+			</tr>
+			<tr>
+			  <th scope="row">Mangini Ranch</th>
+			  <td>Mello-Roos</td>
+			  <td>$2,869.42</td>
+			  <!--<td></td>-->
+			</tr>
+			<tr>
+			  <th scope="row"></th>
+			  <td></td>
+			  <td id="totalMelloRoos" style="font-weight:bold">$4,132.32</td>
+			  <!--<td></td>-->
+			</tr>
+			<thead class="thead-dark">
+				<tr>
+				  <!--<th scope="col">#</th>-->
+				  <th scope="col">Item</th>
+				  <th scope="col">Breakdown</th>
+				  <th scope="col">Amount</th>
+				  <!--<th scope="col">Monthly Amount</th>-->
+				</tr>
+			</thead>
+			<tr>
+			  <th scope="row">Tax</th>
+			  <td>Monthly</td>
+			  <td>$0</td>
+			  <!--<td></td>-->
+			</tr>
+			<tr>
+			  <th scope="row">Mello-Ross</th>
+			  <td>Monthly</td>
+			  <td>$344.36</td>
+			  <!--<td></td>-->
+			</tr>
+			<tr>
+			  <th scope="row">Installment 1</th>
+			  <td></td>
+			  <td>$0</td>
+			  <!--<td></td>-->
+			</tr>
+			<tr>
+			  <th scope="row">Installment 2</th>
+			  <td></td>
+			  <td>$0</td>
+			  <!--<td></td>-->
+			</tr>
+			<tr>
+			  <th scope="row">Total Annual Dues</th>
+			  <td>Yearly</td>
+			  <td>$0</td>
+			  <!--<td></td>-->
 			</tr>
 		  </tbody>
 	    </table>	       
