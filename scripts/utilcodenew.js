@@ -5,7 +5,7 @@ function getCountryData() {
 			htmlData += "<div class='row'>";
 			htmlData += "<div class='cell' style='text-align:left;' data-title='Country'>United States (USA)</div>";
 			htmlData += parseData(value);
-			htmlData += "<div class='cell' data-title='Last Modified' style='text-align:left;padding-left:25px;'>" + getDateString((new Date( Date.parse(value.lastModified))).toLocaleString()) + "</div>";
+			//htmlData += "<div class='cell' data-title='Last Modified' style='text-align:left;padding-left:25px;'>" + getDateString((new Date( Date.parse(value.lastModified))).toLocaleString()) + "</div>";
 			htmlData += "</div>";										
 		});
 		document.getElementById('divTable').innerHTML = htmlData;				
@@ -19,7 +19,7 @@ function getStateData() {
 			htmlStateData += "<div class='row'>";
 			htmlStateData += "<div class='cell' style='text-align:left;' data-title='State'>" + abbrState(value.state, 'name') + "</div>";
 			htmlStateData += parseData(value);
-			htmlStateData += "<div class='cell' data-title='Last Modified' style='text-align:left;padding-left:25px;'>" + getDateString((new Date( Date.parse(value.dateModified))).toLocaleString()) + "</div>";					
+			//htmlStateData += "<div class='cell' data-title='Last Modified' style='text-align:left;padding-left:25px;'>" + getDateString((new Date( Date.parse(value.dateModified))).toLocaleString()) + "</div>";					
 			htmlStateData += "</div>";					
 		});
 		document.getElementById('divStateTable').innerHTML = htmlStateData;				
@@ -29,10 +29,10 @@ function getStateData() {
 function parseData(value){
 	var data = "<div class='cell' data-title='Positive'>" + getValue(value.positive) + "</div>";
 	data += "<div class='cell' data-title='Negative'>" + getValue(value.negative) + "</div>";
-	data += "<div class='cell' data-title='Pending'>" + getValue(value.pending) + "</div>";
+	//data += "<div class='cell' data-title='Pending'>" + getValue(value.pending) + "</div>";
 	data += "<div class='cell' data-title='Total'>" + getValue(value.total) + "</div>";
-	data += "<div class='cell' data-title='Recovered'>" + getValue(value.recovered) + "</div>";
-	data += "<div class='cell' data-title='Deaths'>" + getValue(value.death) + "</div>";
+	//data += "<div class='cell' data-title='Recovered'>" + getValue(value.recovered) + "</div>";
+	//data += "<div class='cell' data-title='Deaths'>" + getValue(value.death) + "</div>";
 	return data;
 }
 
