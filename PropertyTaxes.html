@@ -20,12 +20,19 @@
 				var fcImp2TaxRate = document.getElementById('fcImp2TaxRate').innerHTML;
 				var losRiosTaxRate = document.getElementById('losRiosTaxRate').innerHTML;
 				var totalTaxOnlyRate = document.getElementById('totalTaxOnlyRate').innerHTML;
+				var totalMelloRoos = document.getElementById('totalMelloRoos').innerHTML.replace(",", "").replace("$", "");
+				alert(totalMelloRoos);
 				document.getElementById('countyTax').innerHTML = getValue(countyTaxRate * propertyValue/100);
 				document.getElementById('fcImp3Tax').innerHTML = getValue(fcImp3TaxRate * propertyValue/100);
 				document.getElementById('fcImp2Tax').innerHTML = getValue(fcImp2TaxRate * propertyValue/100);
 				document.getElementById('losRiosTax').innerHTML = getValue(losRiosTaxRate * propertyValue/100);
 				var totalTaxOnly = totalTaxOnlyRate * propertyValue/100;
 				document.getElementById('totalTaxOnly').innerHTML = getValue(totalTaxOnly);
+				document.getElementById('totalAnnualTax').innerHTML = getValue(totalTaxOnly * 1 + totalMelloRoos * 1);
+				document.getElementById('installment1').innerHTML = getValue((totalTaxOnly * 1 + totalMelloRoos * 1)/2);
+				document.getElementById('installment2').innerHTML = getValue((totalTaxOnly * 1 + totalMelloRoos * 1)/2);
+				document.getElementById('monthlyMelloross').innerHTML = getValue(totalMelloRoos/12);
+				document.getElementById('monthlyTax').innerHTML = getValue(totalTaxOnly/12);
 				//document.getElementById('monthlyTaxOnly').innerHTML = '<b>$ ' + totalTaxOnly/12 + '</b>';
 			}
 			else {
@@ -137,34 +144,34 @@
 			<thead class="thead-dark">
 			  <tr>
 				<th scope="col">Item</th>
-				<th scope="col">Breakdown</th>
+				<th scope="col">Split</th>
 				<th scope="col" class="text-right">Amount</th>				
 			  </tr>
 			</thead>
 			<tr>
 			  <th scope="row">Tax</th>
 			  <td>Monthly</td>
-			  <td class="text-right">$0</td>			  
+			  <td class="text-right" id="monthlyTax"></td>			  
 			</tr>
 			<tr>
 			  <th scope="row">Mello-Ross</th>
 			  <td>Monthly</td>
-			  <td class="text-right">$344.36</td>			  
+			  <td class="text-right" id="monthlyMelloross"></td>			  
 			</tr>
 			<tr>
-			  <th scope="row">Installment 1</th>
-			  <td></td>
-			  <td class="text-right">$0</td>			  
+			  <th scope="row">Installment</th>
+			  <td>1</td>
+			  <td class="text-right" id="installment1"></td>			  
 			</tr>
 			<tr>
-			  <th scope="row">Installment 2</th>
-			  <td></td>
-			  <td class="text-right">$0</td>			  
+			  <th scope="row">Installment</th>
+			  <td>2</td>
+			  <td class="text-right" id="installment2"></td>			  
 			</tr>
 			<tr>
 			  <th scope="row">Total Annual Dues</th>
-			  <td>Yearly</td>
-			  <td class="text-right">$0</td>			  
+			  <td style="font-weight:bold">Yearly</td>
+			  <td class="text-right" id="totalAnnualTax" style="font-weight:bold"></td>			  
 			</tr>
 		  </tbody>
 	    </table>	       
@@ -172,6 +179,11 @@
 			<h5 class="footer"></h5>
 			<p class="keywords"></p>
 		</div>-->
+		<div class="container-fluid" style="padding:10px">
+			<p>Checkout the All-in-one<a target="_blank" href="https://covidusa.netlify.com"> COVID-19 Dashboard here</a></p>
+			<p>Disclaimer: These calculations may not be 100% accurate. For exact numbers, please visit<a target="_blank" href="https://eproptax.saccounty.net"> Sacramento County website<a>.</p>
+			<p>Property tax calculator, Folsom Ranch, Lennar, Lennar Oakleaf, Lennar Copperwood, Oakleaf, Copperwood, COVID-19, COVID-19 Dashboard</p>
+		</div>
 	  </div>
 	</body>
 </html>
