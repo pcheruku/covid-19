@@ -3,62 +3,18 @@
    <head>
       <meta charset="UTF-8">
 	  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <title>Lennar Folsom Ranch - Calculate Property Taxes</title>
+      <title>Lennar Folsom Ranch - Property Tax Calculator</title>
 	  <link rel="touch-icon" type="image/png" href="images/stopcovid.png" />
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.4.1/cerulean/bootstrap.min.css" />
 	  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 	  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.0/js/bootstrap.min.js"></script>
-	  <script>         		 
-		 window.onload = function () {			
-		 }
-		 function calculateTaxes(){			
-			var propertyValue = document.getElementById('assessedText').value;
-			if(propertyValue){
-				propertyValue = parseInt(propertyValue.replace(",", ""));
-				var countyTaxRate = document.getElementById('countyTaxRate').innerHTML;
-				var fcImp3TaxRate = document.getElementById('fcImp3TaxRate').innerHTML;
-				var fcImp2TaxRate = document.getElementById('fcImp2TaxRate').innerHTML;
-				var losRiosTaxRate = document.getElementById('losRiosTaxRate').innerHTML;
-				var totalTaxOnlyRate = document.getElementById('totalTaxOnlyRate').innerHTML;
-				var totalMelloRoos = document.getElementById('totalMelloRoos').innerHTML.replace(",", "").replace("$", "");
-				//alert(totalMelloRoos);
-				document.getElementById('countyTax').innerHTML = getValue(countyTaxRate * propertyValue/100);
-				document.getElementById('fcImp3Tax').innerHTML = getValue(fcImp3TaxRate * propertyValue/100);
-				document.getElementById('fcImp2Tax').innerHTML = getValue(fcImp2TaxRate * propertyValue/100);
-				document.getElementById('losRiosTax').innerHTML = getValue(losRiosTaxRate * propertyValue/100);
-				var totalTaxOnly = totalTaxOnlyRate * propertyValue/100;
-				document.getElementById('totalTaxOnly').innerHTML = getValue(totalTaxOnly);
-				document.getElementById('totalAnnualTax').innerHTML = getValue(totalTaxOnly * 1 + totalMelloRoos * 1);
-				document.getElementById('installment1').innerHTML = getValue((totalTaxOnly * 1 + totalMelloRoos * 1)/2);
-				document.getElementById('installment2').innerHTML = getValue((totalTaxOnly * 1 + totalMelloRoos * 1)/2);
-				document.getElementById('monthlyMelloross').innerHTML = getValue(totalMelloRoos/12);
-				document.getElementById('monthlyTax').innerHTML = getValue(totalTaxOnly/12);
-				//document.getElementById('monthlyTaxOnly').innerHTML = '<b>$ ' + totalTaxOnly/12 + '</b>';
-			}
-			else {
-				alert('Enter property value');
-			}			
-		}		
-		function getValue(val){
-			if(val == null) {
-				return '0';
-			}
-			else {
-				return val.toLocaleString('en', { style: 'currency', currency: 'USD' });
-			}			
-		}
-		//$(document).ready(function(){$("#assessedText").on('keyup', function(){
-		//	var n = parseInt($(this).val().replace(/\D/g,''),10);
-		//	$(this).val(n.toLocaleString());			
-		//});
-		//});
-      </script>
+	  <script src='scripts/taxutil.js'></script>	  
    </head>
    <body>
-	  <div class="container-fluid" style="padding:10px">
+	  <div class="container" style="padding:10px">
 		<h2><center>Property Tax Calculator</center></h2>
 		<h5><center>Lennar - Folsom Ranch</center></h5>	    
-		<div class="form-row align-items-center" style="padding:10px">
+		<div class="row justify-content-center align-items-center" style="padding:10px">
 			<div class="col-auto">
 			  <label>Enter County Assessed Property Value:</label>			  
 			</div>
@@ -74,122 +30,121 @@
 			<div class="col-auto">
 			  <button type="submit" class="btn btn-primary mb-2" onclick="calculateTaxes()">Calculate</button>
 			</div>
-		</div>		
-	    <table class="table table-xl">
-		  <thead class="thead-dark">
-			<tr>
-			  <th scope="col">Taxing Agency</th>
-			  <th scope="col">Tax Rate</th>
-			  <th scope="col" class="text-right">Tax Amount</th>			  
-			</tr>
-		  </thead>
-		  <tbody>
-			<tr>
-			  <th scope="row">County</th>
-			  <td id="countyTaxRate">1.0000</td>
-			  <td id="countyTax" class="text-right"></td>			  
-			</tr>
-			<tr>
-			  <th scope="row">FC IMP 3</th>
-			  <td id="fcImp3TaxRate">0.1366</td>
-			  <td id="fcImp3Tax" class="text-right"></td>			  
-			</tr>
-			<tr>
-			  <th scope="row">FC IMP 2</th>
-			  <td id="fcImp2TaxRate">0.0279</td>
-			  <td id="fcImp2Tax" class="text-right"></td>			  
-			</tr>
-			<tr>
-			  <th scope="row">LOS RIOS</th>
-			  <td id="losRiosTaxRate">0.0232</td>
-			  <td id="losRiosTax" class="text-right"></td>			  
-			</tr>
-			<tr>
-			  <th scope="row"></th>
-			  <td id="totalTaxOnlyRate" style="font-weight:bold">1.1877</td>
-			  <td id="totalTaxOnly" class="text-right" style="font-weight:bold"></td>			  
-			</tr>
-			<thead class="thead-dark">
-			  <tr>
-				<th scope="col">Levy Name</th>
-				<th scope="col">Authority</th>
-				<th scope="col" class="text-right">Amount</th>				  
-			  </tr>
-			</thead>
-			<tr>
-			  <th scope="row">Water Facilities</th>
-			  <td>Mello-Roos</td>
-			  <td class="text-right">$198.24</td>			  
-			</tr>
-			<tr>
-			  <th scope="row">FPA Area-Wide</th>
-			  <td>Mello-Roos</td>
-			  <td class="text-right">$1,019.14</td>			  
-			</tr>
-			<tr>
-			  <th scope="row">Willow Hill</th>
-			  <td>Mello-Roos</td>
-			  <td class="text-right">$45.52</td>			  
-			</tr>
-			<tr>
-			  <th scope="row">Mangini Ranch</th>
-			  <td>Mello-Roos</td>
-			  <td class="text-right">$2,869.42</td>			  
-			</tr>
-			<tr>
-			  <th scope="row"></th>
-			  <td></td>
-			  <td id="totalMelloRoos" class="text-right" style="font-weight:bold">$4,132.32</td>			  
-			</tr>
-			<thead class="thead-dark">
-			  <tr>
-				<th scope="col">Item</th>
-				<th scope="col">Split</th>
-				<th scope="col" class="text-right">Amount</th>				
-			  </tr>
-			</thead>
-			<tr>
-			  <th scope="row">Tax</th>
-			  <td>Monthly</td>
-			  <td class="text-right" id="monthlyTax"></td>			  
-			</tr>
-			<tr>
-			  <th scope="row">Mello-Ross</th>
-			  <td>Monthly</td>
-			  <td class="text-right" id="monthlyMelloross"></td>			  
-			</tr>
-			<tr>
-			  <th scope="row">Installment</th>
-			  <td>1</td>
-			  <td class="text-right" id="installment1"></td>			  
-			</tr>
-			<tr>
-			  <th scope="row">Installment</th>
-			  <td>2</td>
-			  <td class="text-right" id="installment2"></td>			  
-			</tr>
-			<tr>
-			  <th scope="row">Total Annual Dues</th>
-			  <td style="font-weight:bold">Yearly</td>
-			  <td class="text-right" id="totalAnnualTax" style="font-weight:bold"></td>			  
-			</tr>
-			<thead class="thead-dark">
-			  <tr>
-				<th scope="col"> </th>
-				<th scope="col"> </th>
-				<th scope="col" class="text-right"> </th>				
-			  </tr>
-			</thead>
-		  </tbody>
-	    </table>	       
-	    <!--<div class="container">
-			<h5 class="footer"></h5>
-			<p class="keywords"></p>
-		</div>-->
+		</div>
+		<div class="table-responsive">
+			<table class="table table-xl">
+			  <thead class="thead-dark">
+				<tr>
+				  <th scope="col">Taxing Agency</th>
+				  <th scope="col">Tax Rate</th>
+				  <th scope="col" class="text-right">Tax Amount</th>			  
+				</tr>
+			  </thead>
+			  <tbody>
+				<tr>
+				  <th scope="row">County</th>
+				  <td id="countyTaxRate">1.0000</td>
+				  <td id="countyTax" class="text-right"></td>			  
+				</tr>
+				<tr>
+				  <th scope="row">FC IMP 3</th>
+				  <td id="fcImp3TaxRate">0.1366</td>
+				  <td id="fcImp3Tax" class="text-right"></td>			  
+				</tr>
+				<tr>
+				  <th scope="row">FC IMP 2</th>
+				  <td id="fcImp2TaxRate">0.0279</td>
+				  <td id="fcImp2Tax" class="text-right"></td>			  
+				</tr>
+				<tr>
+				  <th scope="row">LOS RIOS</th>
+				  <td id="losRiosTaxRate">0.0232</td>
+				  <td id="losRiosTax" class="text-right"></td>			  
+				</tr>
+				<tr>
+				  <th scope="row"></th>
+				  <td id="totalTaxOnlyRate" style="font-weight:bold">1.1877</td>
+				  <td id="totalTaxOnly" class="text-right" style="font-weight:bold"></td>			  
+				</tr>
+				<thead class="thead-dark">
+				  <tr>
+					<th scope="col">Levy Name</th>
+					<th scope="col">Authority</th>
+					<th scope="col" class="text-right">Amount</th>				  
+				  </tr>
+				</thead>
+				<tr>
+				  <th scope="row">Water Facilities</th>
+				  <td>Mello-Roos</td>
+				  <td class="text-right">$198.24</td>			  
+				</tr>
+				<tr>
+				  <th scope="row">FPA Area-Wide</th>
+				  <td>Mello-Roos</td>
+				  <td class="text-right">$1,019.14</td>			  
+				</tr>
+				<tr>
+				  <th scope="row">Willow Hill</th>
+				  <td>Mello-Roos</td>
+				  <td class="text-right">$45.52</td>			  
+				</tr>
+				<tr>
+				  <th scope="row">Mangini Ranch</th>
+				  <td>Mello-Roos</td>
+				  <td class="text-right">$2,869.42</td>			  
+				</tr>
+				<tr>
+				  <th scope="row"></th>
+				  <td></td>
+				  <td id="totalMelloRoos" class="text-right" style="font-weight:bold">$4,132.32</td>			  
+				</tr>
+				<thead class="thead-dark">
+				  <tr>
+					<th scope="col">Item</th>
+					<th scope="col">Split</th>
+					<th scope="col" class="text-right">Amount</th>				
+				  </tr>
+				</thead>
+				<tr>
+				  <th scope="row">Tax</th>
+				  <td>Monthly</td>
+				  <td class="text-right" id="monthlyTax"></td>			  
+				</tr>
+				<tr>
+				  <th scope="row">Mello-Ross</th>
+				  <td>Monthly</td>
+				  <td class="text-right" id="monthlyMelloross"></td>			  
+				</tr>
+				<tr>
+				  <th scope="row">Installment</th>
+				  <td>1</td>
+				  <td class="text-right" id="installment1"></td>			  
+				</tr>
+				<tr>
+				  <th scope="row">Installment</th>
+				  <td>2</td>
+				  <td class="text-right" id="installment2"></td>			  
+				</tr>
+				<tr>
+				  <th scope="row">Total Annual Dues</th>
+				  <td style="font-weight:bold">Yearly</td>
+				  <td class="text-right" id="totalAnnualTax" style="font-weight:bold"></td>			  
+				</tr>
+				<thead class="thead-dark">
+				  <tr>
+					<th scope="col"></th>
+					<th scope="col"></th>
+					<th scope="col" class="text-right"></th>				
+				  </tr>
+				</thead>
+			  </tbody>
+			</table>
+		</div>	    
 		<div class="container-fluid" style="padding:10px">
-			<p style="text-align:center">Checkout the <a target="_blank" href="https://covidusa.netlify.com"> All-in-one COVID-19 Dashboard</a></p>
-			<p style="text-align:center"><b>Disclaimer:</b> These calculations may not be 100% accurate. For exact numbers, please visit<a target="_blank" href="https://eproptax.saccounty.net"> Sacramento County website<a>.</p>
+			<p style="text-align:center">Checkout the <a target="_blank" href="https://covidusa.netlify.com">All-in-one COVID-19 Dashboard</a></p>
+			<p style="text-align:center"><b>Disclaimer:</b> These calculations may not be 100% accurate. For exact numbers, please visit <a target="_blank" href="https://eproptax.saccounty.net">Sacramento County website<a>.</p>
 			<p style="text-align:center">Property tax calculator, Folsom Ranch, Lennar, Lennar Oakleaf, Lennar Copperwood, Oakleaf, Copperwood, COVID-19, COVID-19 Dashboard</p>
+			<p style="text-align:center"><a target="_blank" href="https://pcheruku.wordpress.com">Visit My Blog</a></p>
 		</div>
 	  </div>
 	</body>
